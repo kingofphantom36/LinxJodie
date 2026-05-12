@@ -1,11 +1,22 @@
 import { useState } from 'react';
 import Home from './components/Home';
-import SplashScreen from './components/SplashScreen'; // Ensure this path matches where you saved it
+import SplashScreen from './components/SplashScreen'; 
 import { Analytics } from '@vercel/analytics/react';
 
 export default function App() {
-  // Check session storage immediately so we don't get a 1-frame flicker on page reload
+  // 1. IDENTIFY THE ARCHITECT
+  // Checks if the user is accessing via the internal system links or local development
+  const isArchitect = typeof window !== 'undefined' && 
+    (window.location.hostname.includes('portal') || 
+     window.location.hostname.includes('hub') || 
+     window.location.hostname.includes('localhost'));
+
+  // 2. BYPASS LOGIC
   const [isSplashComplete, setIsSplashComplete] = useState(() => {
+    // If it is a public client, instantly bypass the splash screen
+    if (!isArchitect) return true; 
+    
+    // If it is the Architect, run the session check
     if (typeof window !== 'undefined') {
       return sessionStorage.getItem('splashSeen') === 'true';
     }
@@ -14,12 +25,12 @@ export default function App() {
 
   return (
     <>
-      {/* Mount the Splash Screen overlay if it hasn't been completed */}
-      {!isSplashComplete && (
+      {/* SECURE TERMINAL BOOT SEQUENCE (Only renders for you) */}
+      {!isSplashComplete && isArchitect && (
         <SplashScreen onComplete={() => setIsSplashComplete(true)} />
       )}
       
-      {/* Mount Home immediately underneath so all assets preload silently */}
+      {/* PUBLIC DEPLOYMENT (Instant load for clients) */}
       <Home />
       
       <Analytics />
