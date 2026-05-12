@@ -9,7 +9,7 @@ const XIcon = () => (
   </svg>
 );
 
-// JODIE EFFECT - HIGH-VOLTAGE FLORAL CHROMA ENGINE
+// JODIE EFFECT - HARDWARE ACCELERATED NEON FLORAL ENGINE
 const AbstractChromaBackground = () => {
   const [mounted, setMounted] = useState(false);
   
@@ -24,43 +24,70 @@ const AbstractChromaBackground = () => {
       
       {/* Abstract Petal 1: Nuclear Orchid Bloom */}
       <motion.div
-        className="absolute top-[0%] left-[-15%] w-[65vw] h-[65vw] bg-[#da70d6]/40 blur-[50px] mix-blend-screen"
+        className="absolute top-[5%] left-[-10%] w-[80vw] h-[80vw] sm:w-[60vw] sm:h-[60vw]"
         style={{ 
           borderRadius: '50% 0 50% 0',
-          boxShadow: '0 0 120px rgba(218,112,214,0.6)'
+          background: 'linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(218,112,214,0.8) 30%, transparent 80%)',
+          boxShadow: '0 0 100px rgba(218,112,214,0.6), inset 0 0 50px rgba(255,255,255,0.6)',
+          WebkitTransform: 'translate3d(0,0,0)'
         }}
         animate={{
-          rotate: [0, 20, 0],
-          scale: [1, 1.25, 1],
-          opacity: [0.5, 1, 0.5],
+          rotate: [0, 15, 0],
+          scale: [1, 1.1, 1],
+          opacity: [0.8, 1, 0.8],
         }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
 
       {/* Abstract Petal 2: Neon Turquoise Leaf */}
       <motion.div
-        className="absolute bottom-[-5%] right-[-15%] w-[75vw] h-[75vw] bg-[#40e0d0]/40 blur-[60px] mix-blend-screen"
+        className="absolute bottom-[-5%] right-[-15%] w-[90vw] h-[90vw] sm:w-[70vw] sm:h-[70vw]"
         style={{ 
           borderRadius: '0 50% 0 50%',
-          boxShadow: '0 0 120px rgba(64,224,208,0.6)'
+          background: 'linear-gradient(315deg, rgba(255,255,255,0.5) 0%, rgba(64,224,208,0.8) 30%, transparent 80%)',
+          boxShadow: '0 0 100px rgba(64,224,208,0.6), inset 0 0 50px rgba(255,255,255,0.6)',
+          WebkitTransform: 'translate3d(0,0,0)'
         }}
         animate={{
-          rotate: [0, -20, 0],
-          scale: [1, 1.3, 1],
-          opacity: [0.5, 1, 0.5],
+          rotate: [0, -15, 0],
+          scale: [1, 1.15, 1],
+          opacity: [0.8, 1, 0.8],
         }}
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Core Energy Center: Blinding fusion of both */}
+      {/* Abstract Petal 3: Lower Orchid Support */}
       <motion.div
-        className="absolute top-[20%] left-[10%] w-[70vw] h-[70vw] rounded-full bg-gradient-to-tr from-[#40e0d0]/30 to-[#da70d6]/30 blur-[80px] mix-blend-screen"
+        className="absolute bottom-[-15%] left-[-10%] w-[60vw] h-[60vw] sm:w-[40vw] sm:h-[40vw]"
+        style={{ 
+          borderRadius: '50% 0 50% 0',
+          background: 'linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(218,112,214,0.6) 40%, transparent 80%)',
+          boxShadow: '0 0 80px rgba(218,112,214,0.4)',
+          WebkitTransform: 'translate3d(0,0,0)'
+        }}
         animate={{
-          scale: [0.9, 1.15, 0.9],
-          opacity: [0.6, 0.95, 0.6],
+          rotate: [45, 60, 45],
+          scale: [1, 1.2, 1],
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* Core Energy Center: Blinding White/Cyan Fusion */}
+      <motion.div
+        className="absolute top-[25%] left-[15%] w-[70vw] h-[70vw] sm:w-[50vw] sm:h-[50vw] rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(64,224,208,0.6) 20%, transparent 60%)',
+          WebkitTransform: 'translate3d(0,0,0)'
+        }}
+        animate={{
+          scale: [0.95, 1.15, 0.95],
+          opacity: [0.8, 1, 0.8],
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
+
+      {/* Edge Vignette to keep content readable */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,#020202_100%)] pointer-events-none z-10" />
     </div>
   );
 };
@@ -174,7 +201,7 @@ export default function Home() {
   const stripeUrl = "https://buy.stripe.com/3cIfZi4sw3cS9VwcsC2Fa0e"; 
 
   return (
-    <div className="relative h-[100dvh] w-full flex flex-col items-center justify-between overflow-hidden bg-black text-white p-4">
+    <div className="relative min-h-[100dvh] w-full flex flex-col items-center justify-between overflow-x-hidden bg-black text-white p-4">
       
       <style>
         {`@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap');`}
@@ -185,18 +212,28 @@ export default function Home() {
       {/* Edge Shadow Fade: Keeps edges dark but lets the nuclear center punch through */}
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)] pointer-events-none z-0" />
 
-      {/* Glowing Banner Layer - High Voltage Color Morphing */}
+      {/* Glowing Banner Layer - High Performance Mobile Fix */}
       <div className="absolute top-0 left-0 w-full z-0 flex justify-center pt-5 pointer-events-none">
-        <motion.img 
-          src="/vorsprungtech.png" alt="Authority" className="w-full h-auto max-h-[90px] object-contain px-10 opacity-100" 
+        
+        {/* The Hardware-Accelerated Light Emitter (Placed BEHIND the image) */}
+        <motion.div
+          className="absolute top-8 w-[250px] h-[40px] rounded-full blur-[20px]"
+          style={{ willChange: 'background-color', WebkitTransform: 'translate3d(0,0,0)' }}
           animate={{ 
-            filter: [
-              'drop-shadow(0 0 20px rgba(64,224,208,1))', 
-              'drop-shadow(0 0 35px rgba(218,112,214,1))', 
-              'drop-shadow(0 0 20px rgba(64,224,208,1))'  
+            backgroundColor: [
+              'rgba(64,224,208,0.8)', // Turquoise
+              'rgba(218,112,214,0.8)', // Orchid
+              'rgba(64,224,208,0.8)'  // Turquoise
             ] 
           }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+        
+        {/* The Static, Crisp Image in the Foreground */}
+        <img 
+          src="/vorsprungtech.png" 
+          alt="Authority" 
+          className="w-full h-auto max-h-[90px] object-contain px-10 opacity-100 relative z-10" 
         />
       </div>
 
@@ -206,7 +243,7 @@ export default function Home() {
         {/* Profile Section */}
         <div className="flex flex-col items-center text-center">
           
-          <div className="relative w-24 h-24 rounded-2xl border-[1px] border-[#da70d6]/50 overflow-hidden shadow-[0_0_50px_rgba(218,112,214,0.4)] mb-4 bg-black group">
+          <div className="relative w-24 h-24 rounded-2xl border-[1px] border-[#da70d6]/50 overflow-hidden shadow-[0_0_50px_rgba(218,112,214,0.6)] mb-4 bg-black group">
             <div className="absolute inset-0 bg-gradient-to-tr from-[#40e0d0]/30 to-[#da70d6]/30 mix-blend-overlay z-10 transition-opacity duration-700 group-hover:opacity-0" />
             <img 
               src="/jodie.jpg" 
@@ -226,7 +263,7 @@ export default function Home() {
             </h1>
           </div>
           
-          <div className="mt-4 relative flex items-center justify-center px-6 py-2 overflow-hidden bg-[#da70d6]/10 border-y-[1px] border-[#40e0d0]/50 rounded-sm shadow-[0_0_25px_rgba(218,112,214,0.3)] backdrop-blur-md">
+          <div className="mt-4 relative flex items-center justify-center px-6 py-2 overflow-hidden bg-[#da70d6]/10 border-y-[1px] border-[#40e0d0]/50 rounded-sm shadow-[0_0_25px_rgba(218,112,214,0.4)] backdrop-blur-md">
             <motion.div 
               className="absolute inset-0 bg-gradient-to-r from-transparent via-[#40e0d0]/40 to-transparent w-[200%]"
               animate={{ x: ['-100%', '50%'] }}
@@ -251,7 +288,7 @@ export default function Home() {
       </div>
 
       {/* Bottom Stack: Socials + Footer */}
-      <div className="relative z-10 w-full flex flex-col items-center gap-5 pb-4">
+      <div className="relative z-10 w-full flex flex-col items-center gap-5 pb-4 mt-8">
         <div className="flex justify-center gap-14">
           <a href="https://x.com/TheLogikOS" target="_blank" rel="noopener noreferrer" className="text-[#da70d6] hover:text-[#40e0d0] hover:scale-110 active:scale-95 transition-all drop-shadow-[0_0_8px_rgba(218,112,214,0.6)]"><XIcon /></a>
           <a href="https://www.instagram.com/vorsprung.tech/" target="_blank" rel="noopener noreferrer" className="text-[#da70d6] hover:text-[#40e0d0] hover:scale-110 active:scale-95 transition-all drop-shadow-[0_0_8px_rgba(218,112,214,0.6)]"><Instagram size={20} strokeWidth={2} /></a>
